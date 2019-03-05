@@ -1,23 +1,23 @@
 // from data.js
-console.log(data)
+//console.log(data)
 //var reports = data;
 
-// YOUR CODE HERE!
+// TEST CODE 
 
    // from data.js
    // Validate the data pulls and goes into list in console
-   var dateArray = [];
-   var cityArray = [];
+  //  var dateArray = [];
+  //  var cityArray = [];
       
-   data.forEach(report => {
-     dateArray.push(report.datetime)
-     cityArray.push(report.city)
+  //  data.forEach(report => {
+  //    dateArray.push(report.datetime)
+  //    cityArray.push(report.city)
      
      
-   });
+  //  });
    
-   console.log(dateArray)
-   console.log(cityArray)
+  //  console.log(dateArray)
+  //  console.log(cityArray)
 
 
 // MY FIRST LANDING PAGE VIEW OF ALL DATA
@@ -32,7 +32,7 @@ var table = d3.select("#ufo-table");
 // Use D3 to set the table class to `table table-striped`
 table.attr("class", "table table-striped");
 
-// BUILT Function to upper case the field values for State, City
+// BUILT Function to upper case the field values for State, City 
 function upper(string) {
 
     let u = string.search(" ");
@@ -131,6 +131,7 @@ submit.on("click", function() {
   
    // Use D3 to select the table body
    var tbody = d3.select("tbody");
+   tbody.html("");
 
    // Use D3 to select the table
    var table = d3.select("#ufo-table");
@@ -153,7 +154,7 @@ submit.on("click", function() {
   row.append("td").text(upper_all(data_field.state));
   row.append("td").text(upper_all(data_field.country));
   row.append("td").text(data_field.shape.charAt(0).toUpperCase() + data_field.shape.slice(1));
-  row.append("td").text(data_field.durationMinutes);
+  row.append("td").text(clean(data_field.durationMinutes));
   row.append("td").text(data_field.comments.charAt(0).toUpperCase() + data_field.comments.slice(1));
    })
   })
@@ -186,6 +187,7 @@ submit.on("click", function() {
   
    // Use D3 to select the table body
    var tbody = d3.select("tbody");
+   tbody.html("");
 
    // Use D3 to select the table
    var table = d3.select("#ufo-table");
@@ -208,7 +210,7 @@ submit.on("click", function() {
   row.append("td").text(upper_all(data_field.state));
   row.append("td").text(upper_all(data_field.country));
   row.append("td").text(data_field.shape.charAt(0).toUpperCase() + data_field.shape.slice(1));
-  row.append("td").text(data_field.durationMinutes);
+  row.append("td").text(clean(data_field.durationMinutes));
   row.append("td").text(data_field.comments.charAt(0).toUpperCase() + data_field.comments.slice(1));
    })
   })
