@@ -125,6 +125,14 @@ submit.on("click", function() {
   
 
   var filteredData = data.filter(the_data => the_data.state === inputValue);
+
+  // IDENTIFYING IF THERE IS ANY DATA - IF NOT, INFORM THE USER
+  
+  if (!filteredData || !filteredData.length) {
+    console.log("There were not UFO Sitings in this State, try again!");
+    d3.select('tbody').text("There were no UFO Sitings in the State you selected, try again!")
+    
+  }else {
   
   console.log(filteredData);
   
@@ -157,7 +165,8 @@ submit.on("click", function() {
   row.append("td").text(clean(data_field.durationMinutes));
   row.append("td").text(data_field.comments.charAt(0).toUpperCase() + data_field.comments.slice(1));
    })
-  })
+  }
+})
   ;
 
   // BUTTON FILTER PROCESS FOR DATE
@@ -172,20 +181,26 @@ submit.on("click", function() {
   // Select the input element and get the raw HTML node
   var inputElement = d3.select("#form-control-date");
 
+  
   // Get the value property of the input element
   var inputValue = inputElement.property("value").toString();
-
-  console.log(inputValue);
 
 // Take value from filter button and tell JS to start an action to pull the data values
   
 
   var filteredData = data.filter(the_data => the_data.datetime === inputValue);
+
+  // IDENTIFYING IF THERE IS ANY DATA - IF NOT, INFORM THE USER
   
-  console.log(filteredData);
-  
-  
-   // Use D3 to select the table body
+  if (!filteredData || !filteredData.length) {
+    console.log("There were not UFO Sitings in this State, try again!");
+   
+  d3.select('tbody').text("There were no UFO Sitings on the Date you selected, try again!")
+    
+  }else {
+
+    console.log(filteredData);
+  // Use D3 to select the table body
    var tbody = d3.select("tbody");
    tbody.html("");
 
@@ -213,7 +228,9 @@ submit.on("click", function() {
   row.append("td").text(clean(data_field.durationMinutes));
   row.append("td").text(data_field.comments.charAt(0).toUpperCase() + data_field.comments.slice(1));
    })
-  })
+  }
+}
+  )
   ;
 
 
